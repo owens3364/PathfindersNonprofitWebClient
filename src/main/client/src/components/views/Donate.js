@@ -1,11 +1,9 @@
-import React, {Component} from 'react'
+// @flow
+
+import React, { Component } from 'react';
 
 export default class Donate extends Component {
-    render() {
-        return (
-            <div id="donate">
-                DONATE PAGE
-            </div>
-        );
-    }
+  render() {
+    return <div id="donate">DONATE PAGE</div>;
+  }
 }

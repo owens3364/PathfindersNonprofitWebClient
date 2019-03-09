@@ -1,11 +1,9 @@
-import React, {Component} from 'react'
+// @flow
+
+import React, { Component } from 'react';
 
 export default class Login extends Component {
-    render() {
-        return (
-            <div id="login">
-                LOGIN PAGE
-            </div>
-        );
-    }
+  render() {
+    return <div id="login">LOGIN PAGE</div>;
+  }
 }
