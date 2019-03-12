@@ -6,9 +6,9 @@ import { Row, Col } from 'react-bootstrap';
 import {
   IoLogoFacebook,
   IoLogoGithub,
-  IoLogoGoogle,
   IoLogoInstagram,
-  IoLogoTwitter
+  IoLogoTwitter,
+  IoMdMail
 } from 'react-icons/io';
 import '../stylesheets/navbar.css';
 
@@ -41,7 +41,7 @@ export default class Footer extends Component {
                 <IoLogoGithub />
               </Navbar.Brand>
               <Navbar.Brand href="mailto:pathfinders13497@gmail.com">
-                <IoLogoGoogle />
+                <IoMdMail />
               </Navbar.Brand>
               <Navbar.Brand
                 href="https://www.instagram.com/pathfinders13497/"
