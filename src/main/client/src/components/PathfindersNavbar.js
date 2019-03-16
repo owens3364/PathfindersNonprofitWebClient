@@ -18,7 +18,7 @@ export default class PathfindersNavbar extends Component {
       <Navbar
         fixed="top"
         sticky="top"
-        className={'navbar'}
+        className={'navbar titanic'}
         variant="dark"
         expand="lg"
       >
@@ -69,6 +69,7 @@ export default class PathfindersNavbar extends Component {
               Search
             </Button>
           </Form>
+          <br />
           <LinkContainer to="/login">
             <Button variant="outline-success">Login</Button>
           </LinkContainer>

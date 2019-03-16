@@ -4,4 +4,10 @@
 
 .navbar {
   background-color: #1f3362 !important;
+  border-color: #1f3362 !important;
+}
+
+.titanic {
+  float: none;
+  margin: 0 auto;
 }

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import {
   IoLogoFacebook,
   IoLogoGithub,
@@ -18,18 +18,18 @@ export default class Footer extends Component {
       <Navbar
         fixed="bottom"
         sticky="bottom"
-        className={'footer'}
+        className={'navbar titanic'}
         variant="dark"
         expand="lg"
       >
-        <Row>
+        <Container fluid>
           <Col>
             <Row>
-              <Navbar.Brand>Connect With Us!</Navbar.Brand>
+              <Navbar.Brand className="titanic">Connect With Us!</Navbar.Brand>
             </Row>
-            <Row>
+            <Row className="navbar titanic">
               <Navbar.Brand
-                href="https://www.facebook.com/path.finders.5836"
+                href="https://www.facebook.com/13497.FTC.Pathfinders/"
                 target="_blank"
               >
                 <IoLogoFacebook />
@@ -57,7 +57,7 @@ export default class Footer extends Component {
               </Navbar.Brand>
             </Row>
           </Col>
-        </Row>
+        </Container>
       </Navbar>
     );
   }
