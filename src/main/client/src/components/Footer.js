@@ -17,7 +17,6 @@ export default class Footer extends Component {
     return (
       <Navbar
         fixed="bottom"
-        sticky="bottom"
         className={'navbar titanic'}
         variant="dark"
         expand="lg"
