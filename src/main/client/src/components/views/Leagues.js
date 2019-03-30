@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
 import Holder from 'react-holder-component';
+import ReactGA from 'react-ga';
 
 export default class Leagues extends Component {
+  componentDidMount() {
+    ReactGA.pageview(window.location.pathname);
+  }
+
   render() {
     return (
       <Carousel>
