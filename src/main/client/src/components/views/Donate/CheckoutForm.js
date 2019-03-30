@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import { injectStripe } from 'react-stripe-elements';
 import { Tabs, Tab } from 'react-bootstrap';

@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+// @flow
 
+import React, { Component } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
 export default class InformationForm extends Component {

@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import { StripeProvider, Elements } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
