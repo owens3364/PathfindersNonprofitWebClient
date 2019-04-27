@@ -19,7 +19,7 @@ export default class Home extends Component {
         </p>
         <h1>Our Mission</h1>
         <p>
-          At Pathfinders Robotics, our goal is to support student led FIRST
+          At Pathfinders Robotics, our mission is to support student led FIRST
           teams as best we can through the use of our student mentors, web
           resources, gracious sponsors, and 501(c)3 nonprofit capabilities.
         </p>

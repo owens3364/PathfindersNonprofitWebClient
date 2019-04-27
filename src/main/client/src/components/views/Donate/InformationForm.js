@@ -2,8 +2,13 @@
 
 import React, { Component } from 'react';
 import { Button, Form } from 'react-bootstrap';
+//import ReactGA from 'react-ga';
 
 export default class InformationForm extends Component {
+  componentDidMount() {
+    // TODO: Log ReactGA stuff here
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +30,7 @@ export default class InformationForm extends Component {
       stateValid: false,
       zipValid: false,
       emailValid: false,
-      phoneValid: false,
+      phoneValid: true,
 
       formChanged: false,
       formValid: false
@@ -58,24 +63,37 @@ export default class InformationForm extends Component {
     event.preventDefault();
     event.stopPropagation();
     if (!this.state.validated) {
-      this.setState({ validated: true }, () => this.updateTabs());
+      this.setState({ validated: true }, () => this.updateTabs(true));
     } else {
-      this.updateTabs();
+      this.updateTabs(true);
     }
   }
 
-  updateTabs() {
+  updateTabs(fromSubmit) {
     this.setState({ formValid: this.formValid() }, () => {
       if (this.state.validated) {
         if (this.state.formChanged) {
           if (this.state.formValid) {
-            this.props.enablePayment();
+            this.props.enablePayment(
+              fromSubmit ? this.props.advanceToFront : null
+            );
           } else {
             this.props.disablePayment();
             this.props.disableConfirmation();
           }
         }
       }
+    });
+    this.props.setData({
+      name: this.state.name,
+      addr1: this.state.addr1,
+      addr2: this.state.addr2,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip,
+      email: this.state.email,
+      phone: this.state.phone,
+      amount: this.props.getData().amount
     });
   }
 
@@ -100,7 +118,7 @@ export default class InformationForm extends Component {
           name: name.target.value,
           nameValid: this.validateGeneric(name.target.value)
         },
-        () => this.updateTabs()
+        () => this.updateTabs(false)
       );
     }
   }
@@ -113,7 +131,7 @@ export default class InformationForm extends Component {
           addr1: addr1.target.value,
           addr1Valid: this.validateGeneric(addr1.target.value)
         },
-        () => this.updateTabs()
+        () => this.updateTabs(false)
       );
     }
   }
@@ -126,7 +144,7 @@ export default class InformationForm extends Component {
           addr2: addr2.target.value,
           addr2Valid: this.validateGeneric(addr2.target.value)
         },
-        () => this.updateTabs()
+        () => this.updateTabs(false)
       );
     }
   }
@@ -140,7 +158,7 @@ export default class InformationForm extends Component {
             city: city.target.value,
             cityValid: this.validateGeneric(city.target.value)
           },
-          () => this.updateTabs()
+          () => this.updateTabs(false)
         );
       }
     }
@@ -156,7 +174,7 @@ export default class InformationForm extends Component {
               state: state.target.value,
               stateValid: this.validateState(state.target.value)
             },
-            () => this.updateTabs()
+            () => this.updateTabs(false)
           );
         }
       }
@@ -173,7 +191,7 @@ export default class InformationForm extends Component {
               zip: zip.target.value,
               zipValid: this.validateZip(zip.target.value)
             },
-            () => this.updateTabs()
+            () => this.updateTabs(false)
           );
         }
       }
@@ -188,7 +206,7 @@ export default class InformationForm extends Component {
           email: email.target.value,
           emailValid: this.validateEmail(email.target.value)
         },
-        () => this.updateTabs()
+        () => this.updateTabs(false)
       );
     }
   }
@@ -203,7 +221,7 @@ export default class InformationForm extends Component {
             phone: value,
             phoneValid: this.validatePhone(phone.target.value)
           },
-          () => this.updateTabs()
+          () => this.updateTabs(false)
         );
       }
     }
@@ -238,8 +256,10 @@ export default class InformationForm extends Component {
 
   validatePhone(phone) {
     return true;
+    /*
     let valid = phone.length === 19;
     return valid;
+    */
   }
 
   render() {
@@ -247,9 +267,7 @@ export default class InformationForm extends Component {
       <Form
         noValidate
         validated={this.state.validated}
-        onSubmit={e => {
-          this.submit(e);
-        }}
+        onSubmit={e => this.submit(e)}
       >
         <Form.Row>
           <Form.Group controlId="name">
